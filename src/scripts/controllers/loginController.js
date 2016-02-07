@@ -1,8 +1,15 @@
 angular.module('myApp')
-    .controller('LoginController', function ($scope, AjaxFactory, MediaService) {
+    .controller('LoginController', function ($scope, $location, AjaxFactory, MediaService) {
+
+        var doLogin = function (response) {
+            MediaService.setVariable('userData', response.data);
+            $scope.logged = true;
+            $location.path('/myFiles').replace();
+        };
+
 
         $scope.login = function () {
-            
+
             var data = {
                 username: $scope.uname,
                 password: $scope.pwd
@@ -10,11 +17,19 @@ angular.module('myApp')
 
             var request = AjaxFactory.login(data);
 
-            request.then(function (response) {
-                MediaService.setVariable('userData', response.data);
-                $scope.logged = true;
-            }, function (error) {
-                console.log(error.data);
-            });
+            request.then(doLogin, MediaService.handleError);
+        };
+
+        $scope.register = function () {
+
+            var data = {
+                username: $scope.uname,
+                password: $scope.pwd,
+                email: $scope.email
+            };
+
+            var request = AjaxFactory.register(data);
+
+            request.then(doLogin, MediaService.handleError);
         };
     });

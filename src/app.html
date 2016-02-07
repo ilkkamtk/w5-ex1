@@ -13,18 +13,8 @@
 </head>
 
 <body>
-    <div ng-controller="LoginController" ng-hide="logged">
-        <login-form></login-form>
-        <div ng-controller="RegisterController">
-            <register-form></register-form>
-        </div>
-    </div>
-     
-    
-    
-    
-    <div ng-controller="UserFilesController">
-        <show-files></show-files>
+   <div class="container">
+        <div ng-view=""></div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -34,18 +24,18 @@
 
     <!-- Include angular files & plugins -->
     <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
 
     <!-- Include My App's JS file(s)-->
     <script src="scripts/app.js"></script>
+    <script src="scripts/config/config.js"></script>
     <!-- controllers -->
     <script src="scripts/controllers/uploadController.js"></script>
-    <script src="scripts/controllers/registerController.js"></script>
     <script src="scripts/controllers/loginController.js"></script>
     <script src="scripts/controllers/userFilesController.js"></script>
 
     <!-- directives -->
     <script src="scripts/directives/fileForm.js"></script>
-    <script src="scripts/directives/registerForm.js"></script>
     <script src="scripts/directives/loginForm.js"></script>
     <script src="scripts/directives/showFiles.js"></script>
 

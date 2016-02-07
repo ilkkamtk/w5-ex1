@@ -4,12 +4,15 @@ angular.module('myApp')
             mediaUrl: 'http://util.mw.metropolia.fi/uploads/',
             userData: {}
         };
-    
-        mediaVariables.setVariable = function(key, value){
+
+        mediaVariables.setVariable = function (key, value) {
             mediaVariables[key] = value;
             $rootScope.$broadcast('mediaevent', 'Variables updated');
-        };    
-     
-    
+        };
+
+        mediaVariables.handleError = function (error) {
+            console.log(error.data);
+        };
+
         return mediaVariables;
     });
