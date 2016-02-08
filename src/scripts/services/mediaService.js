@@ -7,7 +7,6 @@ angular.module('myApp')
 
         mediaVariables.setVariable = function (key, value) {
             mediaVariables[key] = value;
-            $rootScope.$broadcast('mediaevent', 'Variables updated');
         };
 
         mediaVariables.handleError = function (error) {

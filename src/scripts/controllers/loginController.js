@@ -3,7 +3,6 @@ angular.module('myApp')
 
         var doLogin = function (response) {
             MediaService.setVariable('userData', response.data);
-            $scope.logged = true;
             $location.path('/myFiles').replace();
         };
 
