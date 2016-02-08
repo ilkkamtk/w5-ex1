@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .service('MediaService', function ($rootScope) {
+    .service('MediaService', function () {
         var mediaVariables = {
             mediaUrl: 'http://util.mw.metropolia.fi/uploads/',
             userData: {}
